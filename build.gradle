@@ -33,11 +33,7 @@ jar {
 }
 
 // Define the stage task for deployment (Heroku/Koyeb expects this)
-task stage(dependsOn: ['clean', 'build', 'installDist']) {
-    doLast {
-        // Optionally disable tests during staging
-        tasks.withType(Test) {
-            it.enabled = false
-        }
-    }
-}
+task stage(dependsOn: ['clean', 'build', 'installDist'])
+
+// Set the default task to stage so that running "gradlew" executes it
+defaultTasks 'stage'
