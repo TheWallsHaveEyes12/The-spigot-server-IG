@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'application' // Added to provide installDist and proper packaging
+    id 'application' // Provides installDist and proper packaging
 }
 
 group 'com.example'
@@ -40,7 +40,4 @@ task stage(dependsOn: ['clean', 'build', 'installDist']) {
             it.enabled = false
         }
     }
-}
-tasks.register("stage") {
-    dependsOn("build")
 }
