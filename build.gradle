@@ -27,8 +27,12 @@ jar {
 }
 
 // Add the stage task
-task stage(dependsOn: ['build', 'clean']) {
-    build.mustRunAfter clean
+task stage(dependsOn: ['clean', 'build']) {
+    doLast {
+        tasks.withType(Test) {
+            it.enabled = false
+        }
+    }
 }
 
 task copyToLib(type: Copy) {
@@ -37,9 +41,3 @@ task copyToLib(type: Copy) {
 }
 
 stage.dependsOn(copyToLib)
-
-gradle.taskGraph.whenReady { taskGraph ->
-    if (taskGraph.hasTask(stage)) {
-        test.enabled = false
-    }
-}
