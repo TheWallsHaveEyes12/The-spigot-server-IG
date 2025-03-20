@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application' // Added to provide installDist and proper packaging
 }
 
 group 'com.example'
@@ -18,26 +19,25 @@ test {
     useJUnitPlatform()
 }
 
+// Configure the application plugin with your main class
+application {
+    mainClass = 'com.example.Main' // Replace with your actual main class if needed
+}
+
 jar {
     manifest {
         attributes(
-            'Main-Class': 'com.example.Main' // Change this to your main class
+            'Main-Class': 'com.example.Main'
         )
     }
 }
 
-// Add the stage task
-task stage(dependsOn: ['clean', 'build']) {
+// Define the stage task for deployment (Heroku/Koyeb expects this)
+task stage(dependsOn: ['clean', 'build', 'installDist']) {
     doLast {
+        // Optionally disable tests during staging
         tasks.withType(Test) {
             it.enabled = false
         }
     }
 }
-
-task copyToLib(type: Copy) {
-    into "$buildDir/libs"
-    from(configurations.implementation)
-}
-
-stage.dependsOn(copyToLib)
