@@ -25,3 +25,8 @@ jar {
         )
     }
 }
+
+// Add the stage task
+task stage {
+    dependsOn build
+}
