@@ -28,7 +28,7 @@ listeners:
   force_default_server: true
   forced_hosts:
     pvp.md-5.net: pvp
-  host: 0.0.0.0:28732  # Ensure this matches your server port
+  host: 0.0.0.0:25565  # Ensure this matches your server port
   max_players: 100  # Adjust based on your server capacity
   motd: '&1Eaglercraft Bungee Server'
   ping_passthrough: false
