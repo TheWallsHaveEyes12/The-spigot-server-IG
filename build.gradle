@@ -41,3 +41,6 @@ task stage(dependsOn: ['clean', 'build', 'installDist']) {
         }
     }
 }
+tasks.register("stage") {
+    dependsOn("build")
+}
