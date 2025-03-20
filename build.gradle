@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'application' // Provides installDist and proper packaging
+    id 'application'
 }
 
 group 'com.example'
@@ -19,9 +19,8 @@ test {
     useJUnitPlatform()
 }
 
-// Configure the application plugin with your main class
 application {
-    mainClass = 'com.example.Main' // Replace with your actual main class if needed
+    mainClass = 'com.example.Main' // Update to your actual main class if needed
 }
 
 jar {
@@ -32,11 +31,6 @@ jar {
     }
 }
 
-// Define the stage task that the buildpack expects
-task stage(dependsOn: ['clean', 'build', 'installDist']) {
-    // Optional: disable tests during staging if needed
-    // tasks.withType(Test) { it.enabled = false }
-}
-
-// Set the stage task as the default task
-defaultTasks 'stage'
+// Define the stage task that Heroku/Koyeb buildpacks expect.
+// This task depends on cleaning previous builds and building the project.
+task stage(dependsOn: ['clean', 'build'])
