@@ -20,7 +20,7 @@ test {
 }
 
 application {
-    mainClass = 'com.example.Main' // Update to your actual main class if needed
+    mainClass = 'com.example.Main' // Update this to your actual main class
 }
 
 jar {
@@ -30,7 +30,3 @@ jar {
         )
     }
 }
-
-// Define the stage task that Heroku/Koyeb buildpacks expect.
-// This task depends on cleaning previous builds and building the project.
-task stage(dependsOn: ['clean', 'build'])
