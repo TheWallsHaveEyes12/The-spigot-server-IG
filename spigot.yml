@@ -1,0 +1,71 @@
+config-version: 12
+settings:
+  debug: false
+  bungeecord: true  # Enable BungeeCord support
+  save-user-cache-on-stop-only: false
+  timeout-time: 60
+  restart-on-crash: true
+  restart-script: ./start.sh
+  netty-threads: 4
+  player-shuffle: 0
+  sample-count: 12
+
+commands:
+  tab-complete: 0
+  log: true
+  spam-exclusions:
+    - /skill
+  silent-commandblock-console: false
+
+world-settings:
+  default:
+    verbose: true
+    arrow-despawn-rate: 1200
+    item-despawn-rate: 6000
+    merge-radius:
+      item: 2.5
+      exp: 3.0
+    entity-activation-range:
+      animals: 32
+      monsters: 32
+      raiders: 48
+      misc: 16
+      tick-inactive-villagers: true
+    entity-tracking-range:
+      players: 48
+      animals: 48
+      monsters: 48
+      misc: 32
+      other: 64
+    hopper-amount: 1
+    max-tick-time:
+      tile: 50
+      entity: 50
+    mob-spawn-range: 4
+    nerf-spawner-mobs: false
+    enable-zombie-pigmen-portal-spawns: true
+    entity-collisions: true
+    seed-village: 10387312
+    seed-desert: 14357617
+    seed-igloo: 14357618
+    seed-jungle: 14357619
+    seed-swamp: 14357620
+    seed-monument: 10387313
+    seed-shipwreck: 165745295
+    seed-ocean: 10387313
+    seed-slime: 987234910
+    seed-bastion: 30084232
+    seed-fortress: 30084232
+    seed-mansion: 10387319
+    seed-pyramid: 14357621
+    seed-outpost: 165745296
+    seed-ruins: 14357619
+    seed-trail: 10387320
+    view-distance: 10
+    simulation-distance: 8
+    allow-non-player-entities-on-scoreboards: true
+    despawn-ranges:
+      soft: 28
+      hard: 96
+    armor-stand-tick: true
+    allow-chest-cat-detection: true
